@@ -19,7 +19,7 @@ const Users = sequelize.define("Users", {
         allowNull: false,
     },
     email: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     age: {
@@ -27,7 +27,7 @@ const Users = sequelize.define("Users", {
         allowNulls: false,
     },
     nationality: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNulls: false,
     },
 });

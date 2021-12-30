@@ -10,12 +10,12 @@ const Houses = sequelize.define("Houses", {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
     },
-    name: {
-        type: DataTypes.STRING,
+    houseName: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    description: {
-        type: DataTypes.STRING,
+    houseDescription: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     guestCapacity: {
@@ -31,11 +31,12 @@ const Houses = sequelize.define("Houses", {
         allowNull: false,
     },
     amenities: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    location: {
-        type: DataTypes.STRING,
+    houseLocation: {
+        type: DataTypes.TEXT,
+        allowNull: false,
     },
     rating: {
         type: DataTypes.INTEGER,
@@ -44,7 +45,11 @@ const Houses = sequelize.define("Houses", {
     pricePerNight: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    }
+    },
+    propertyType: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
 });
 
 export default Houses;
