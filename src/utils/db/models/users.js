@@ -4,7 +4,7 @@ import s from "sequelize";
 
 const { DataTypes } = s;
 
-const Users = sequelize.define("users", {
+const Users = sequelize.define("Users", {
     userId: {
         primaryKey: true,
         type: DataTypes.UUID,
@@ -23,7 +23,7 @@ const Users = sequelize.define("users", {
         allowNull: false,
     },
     age: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNulls: false,
     },
     nationality: {
