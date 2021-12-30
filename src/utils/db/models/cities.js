@@ -10,7 +10,7 @@ const Cities = sequelize.define("Cities", {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
     },
-    name: {
+    cityName: {
         type: DataTypes.STRING,
         allowNull: false,
     },

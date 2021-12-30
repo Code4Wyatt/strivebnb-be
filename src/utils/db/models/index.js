@@ -15,6 +15,13 @@ Reviews.belongsTo(Users, { onDelete: "CASCADE" });
 Cities.hasMany(Houses, { onDelete: "CASCADE" });
 Houses.belongsTo(Cities, { onDelete: "CASCADE" });
 
+
+//---- Many to many below ? ---- //
+
 // One to many, houses have many users
 Houses.hasMany(Users, { onDelete: "CASCADE" });
-Users.belongsTo(Houses, { onDelete: "CASCADE" });
+Users.belongsToMany(Houses, { onDelete: "CASCADE" });
+
+// One to many, users have many houses
+Users.hasMany(Houses, { onDelete: "CASCADE" });
+Houses.belongsToMany(Users, { onDelete: "CASCADE" });

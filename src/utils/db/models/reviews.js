@@ -10,7 +10,7 @@ const Review = sequelize.define('review', {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
     },
-    text: {
+    comment: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
