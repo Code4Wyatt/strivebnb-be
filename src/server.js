@@ -27,6 +27,7 @@ const corsOptions = {
 server.use(cors(corsOptions));
 server.use(express.json());
 
+// Endpoints
 server.use("/cities", citiesRouter);
 
 server.listen(port, async(req, res, next) => {

@@ -1,11 +1,13 @@
 import { Router } from 'express';
+import { Op } from 'sequelize';
+import { Cities } from '../../utils/db/models/cities.js';
 
 const citiesRouter = Router();
 
 citiesRouter.post("/", async (req, res, next) => {
     try {
         console.log(req.body);
-        const city = await City.create(req.body);
+        const city = await Cities.create(req.body);
         res.send(city);
     } catch (error) {
         console.log(error);
