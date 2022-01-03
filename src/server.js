@@ -1,11 +1,12 @@
 import express from "express";
 import listEndpoints from "express-list-endpoints";
-import sequelize, { testConnection } from "./db/connect.js";
+import { testDbConnection } from "./utils/db/connect.js";
+import sequelize, { connectDB } from "./utils/db/index.js";
 import cors from "cors";
-
+import citiesRouter from "./utils/db/models/cities.js";
 
 const server = express();
-const port = process.env.PORT || 5009;
+const port = process.env.PORT;
 
 const whiteList = [process.env.FE_LOCAL_URL, process.env.FE_REMOTE_URL];
 
@@ -21,25 +22,24 @@ const corsOptions = {
 };
 
 
-// Tables
+// Middlewares
 
-import Users from "./db/models/users.js";
-import Cities from "./db/models/cities.js";
-import Houses from "./db/models/houses.js";
+server.use(cors(corsOptions));
+server.use(express.json());
 
-// Table Relations
+server.use("/cities", citiesRouter);
 
-// -- Many to many between houses and users
-Houses.belongsToMany(Users, { through: HouseCategory,
-    onDelete: "CASCADE",
+server.listen(port, async(req, res, next) => {
+    console.log("Server is running on port: ", port);
+    await connectDB();
+    sequelize
+    .sync({ logging: false })
+    .then(() => {
+      console.log("DB synced");
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 });
-Users.belongsToMany(Houses, { through: HouseCategory,
-onDelete: "CASCADE",
-});
-
-// -- One to many cities to houses, one city has many houses
-Cities.hasMany(Houses, { onDelete: "CASCADE" });
-Houses.belongsTo(Cities, {onDelete: "CASCADE" });
-
-
-
+console.log(listEndpoints)
+server.on("error", (error) => console.log("Server not running due to following error: ", error));

@@ -4,7 +4,7 @@ import pool from "./connect.js";
 
 const createTables = async () => {
     try {
-        const filePath = path.join(process.cwd(), './src/utils/dv/tables.sql');
+        const filePath = path.join(process.cwd(), './src/utils/db/tables.sql');
         const fileContentAsBuffer = await fs.readFile(filePath);
         const fileContentAsString = fileContentAsBuffer.toString();
 
