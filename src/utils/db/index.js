@@ -4,7 +4,7 @@ const { HEROKU_URI } = process.env;
 
 const sequelize = new Sequelize(HEROKU_URI, {
     dialect: 'postgres',
-    dialectOptions: {         // IMPORTANT
+    dialectOptions: { 
         ssl: {
           require: true,
           rejectUnauthorized: false,

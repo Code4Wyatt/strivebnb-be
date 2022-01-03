@@ -3,6 +3,7 @@ import Houses from "./houses.js";
 import Reviews from "./reviews.js";
 import Users from "./users.js";
 
+
 // One to one between house and category 
 
 Houses.hasOne(HouseCategory, { onDelete: "CASCADE" });
@@ -35,3 +36,5 @@ Houses.belongsToMany(Users, { through: HouseCategory,
 Users.belongsToMany(Houses, { through: HouseCategory,
 onDelete: "CASCADE",
 });
+
+export { Cities, Houses, HouseCategory, Users, Reviews };
