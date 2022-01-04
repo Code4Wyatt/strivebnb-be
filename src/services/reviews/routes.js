@@ -14,4 +14,13 @@ reviewsRouter.post("/", async (req, res, next) => {
     }
 });
 
+reviewsRouter.get("/", async (req, res, next) => {
+    try {
+        const getAllReviews = await Reviews.findAll();
+        res.send(getAllReviews);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+})
 export default reviewsRouter;
