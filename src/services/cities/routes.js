@@ -17,7 +17,7 @@ citiesRouter.post("/", async (req, res, next) => {
 
 citiesRouter.get("/", async (req, res, next) => {
     try {
-        const allCities = await City.findAll({include: [ Houses ]});
+        const allCities = await City.findAll();
         res.send(allCities);
     } catch (error) {
         console.log(error);
