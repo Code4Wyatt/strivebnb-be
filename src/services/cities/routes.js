@@ -14,15 +14,15 @@ citiesRouter.post("/", async (req, res, next) => {
     }
 });
 
-// citiesRouter.get("/", async (req, res, next) => {
-//     try {
-//         const allCities = await City.findAll({include: [ Houses ]});
-//         res.send(allCities);
-//     } catch (error) {
-//         console.log(error);
-//         next(error);
-//     }
-// });
+citiesRouter.get("/", async (req, res, next) => {
+    try {
+        const allCities = await City.findAll({include: [ Houses ]});
+        res.send(allCities);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
 
 // citiesRouter.put("/:id", async (req, res, next) => {
 //     try {
