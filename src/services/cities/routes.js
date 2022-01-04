@@ -1,6 +1,7 @@
 import { Router } from 'express';
 // import { Op } from 'sequelize';
 import Cities from '../../utils/db/models/cities.js';
+import Houses from '../../utils/db/models/houses.js';
 
 const citiesRouter = Router();
 
