@@ -1,9 +1,10 @@
 import express from "express";
 import listEndpoints from "express-list-endpoints";
-import sequelize, { testDbConnection } from "./utils/db/connect.js";
+// import sequelize, { testDbConnection } from "./utils/db/connect.js";
 import { connectDB } from "./utils/db/index.js";
 import cors from "cors";
-import citiesRouter from "./utils/db/models/cities.js";
+import citiesRouter from "./services/cities/routes.js";
+import housesRouter from "./services/houses/routes.js";
 
 const server = express();
 const port = process.env.PORT;
@@ -29,6 +30,7 @@ server.use(express.json());
 
 // Endpoints
 server.use("/cities", citiesRouter);
+server.use("/houses", housesRouter);
 
 server.listen(port, async(req, res, next) => {
     console.log("Server is running on port: ", port);
