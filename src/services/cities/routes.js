@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Op } from 'sequelize';
-import { Cities } from '../../utils/db/models/cities.js';
+import Cities from '../../utils/db/models/cities.js';
 
 const citiesRouter = Router();
 

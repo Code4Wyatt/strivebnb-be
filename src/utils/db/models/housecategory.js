@@ -2,7 +2,7 @@ import sequelize from "../index.js";
 
 import s from "sequelize";
 
-const { DataTypes } = sequelize;
+const { DataTypes } = s;
 
 const HouseCategory = sequelize.define("HouseCategory", { 
     houseCategoryId: { 

@@ -11,11 +11,11 @@ const Cities = sequelize.define("Cities", {
         defaultValue: DataTypes.UUIDV4,
     },
     cityName: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     country: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     }
 });

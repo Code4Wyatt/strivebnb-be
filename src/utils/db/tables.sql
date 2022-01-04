@@ -12,7 +12,9 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS cities (
     cityId integer NOT NULL GENERATED ALWAYS AS IDENTITY,
     cityName text NOT NULL,
-    country string NOT NULL,
+    country text NOT NULL,
+    created_at timestamp with time zone DEFAULT now(),
+    updated_at timestamp with time zone DEFAULT now(),
 );
 
 CREATE TABLE IF NOT EXISTS houses (
@@ -27,6 +29,8 @@ CREATE TABLE IF NOT EXISTS houses (
     rating integer NOT NULL,
     pricePerNight integer NOT NULL,
     propertyType text NOT NULL,
+    created_at timestamp with time zone DEFAULT now(),
+    updated_at timestamp with time zone DEFAULT now(),
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
@@ -35,6 +39,7 @@ CREATE TABLE IF NOT EXISTS reviews (
     rating integer NOT NULL,
     houseId integer,
     created_at timestamp with time zone DEFAULT now(), 
+    updated_at timestamp with time zone DEFAULT now(),
     CONSTRAINT review_pkey PRIMARY KEY (reviewId),
     CONSTRAINT review_houseId_fkey FOREIGN KEY (houseId)
     REFERENCES public.houses (houseId) MATCH SIMPLE

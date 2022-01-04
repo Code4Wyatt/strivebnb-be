@@ -1,7 +1,7 @@
 import express from "express";
 import listEndpoints from "express-list-endpoints";
-import { testDbConnection } from "./utils/db/connect.js";
-import sequelize, { connectDB } from "./utils/db/index.js";
+import sequelize, { testDbConnection } from "./utils/db/connect.js";
+import { connectDB } from "./utils/db/index.js";
 import cors from "cors";
 import citiesRouter from "./utils/db/models/cities.js";
 
@@ -32,15 +32,10 @@ server.use("/cities", citiesRouter);
 
 server.listen(port, async(req, res, next) => {
     console.log("Server is running on port: ", port);
+    console.log(listEndpoints(server));
+
     await connectDB();
-    sequelize
-    .sync({ logging: false })
-    .then(() => {
-      console.log("DB synced");
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+
 });
-console.log(listEndpoints)
+
 server.on("error", (error) => console.log("Server not running due to following error: ", error));
