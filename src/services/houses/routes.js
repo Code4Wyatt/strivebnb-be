@@ -1,5 +1,6 @@
 import { Router } from "express";
 import Houses from "../../utils/db/models/houses.js";
+
 const housesRouter = Router();
 
 housesRouter.post("/", async (req,res,next) => {
