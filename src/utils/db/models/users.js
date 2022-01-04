@@ -10,11 +10,7 @@ const Users = sequelize.define("Users", {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
     },
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    lastName: {
+    legalName: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -22,13 +18,29 @@ const Users = sequelize.define("Users", {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    age: {
-        type: DataTypes.INTEGER,
-        allowNulls: false,
+    dateOfBirth: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
     },
-    nationality: {
+    phoneNumber: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    governmentId: {
         type: DataTypes.TEXT,
-        allowNulls: false,
+        allowNull: true,
+    },
+    userAddress: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+    },
+    emergencyContact: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+    },
+    chinaTravelPassport: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
     },
 });
 

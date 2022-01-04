@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS reviews (
     comment text NOT NULL,
     rating integer NOT NULL,
     houseId integer,
+    userId integer,
     created_at timestamp with time zone DEFAULT now(), 
     updated_at timestamp with time zone DEFAULT now(),
     CONSTRAINT review_pkey PRIMARY KEY (reviewId),

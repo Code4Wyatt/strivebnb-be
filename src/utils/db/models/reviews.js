@@ -18,18 +18,14 @@ const Review = sequelize.define('review', {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    description: {
+    houseId: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    houseId: {
-        type: DataTypes.STRING,
+    userId: {
+        type: DataTypes.TEXT,
         allowNull: false,
     }
-})
+});
 
 export default Review;
