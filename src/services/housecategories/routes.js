@@ -14,4 +14,14 @@ houseCategoriesRouter.post("/", async (req, res, next) => {
     }
 });
 
+houseCategoriesRouter.get("/", async (req, res, next) => {
+    try {
+        const getHouseCategories = await HouseCategory.findAll();
+        res.send(getHouseCategories);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
 export default houseCategoriesRouter;
