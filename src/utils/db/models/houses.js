@@ -34,7 +34,7 @@ const Houses = sequelize.define("Houses", {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    location: {
+    houseLocation: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
@@ -50,8 +50,8 @@ const Houses = sequelize.define("Houses", {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    categoryName: {
-        type: DataTypes.TEXT,
+    houseCategoryId: {
+        type: DataTypes.STRING,
         allowNull: false,
     },
 });
