@@ -5,6 +5,8 @@ import { connectDB } from "./utils/db/index.js";
 import cors from "cors";
 import citiesRouter from "./services/cities/routes.js";
 import housesRouter from "./services/houses/routes.js";
+import houseCategoriesRouter from "./services/housecategories/routes.js";
+import reviewsRouter from "./services/reviews/routes.js";
 
 const server = express();
 const port = process.env.PORT;
@@ -31,6 +33,9 @@ server.use(express.json());
 // Endpoints
 server.use("/cities", citiesRouter);
 server.use("/houses", housesRouter);
+server.use("/housecategories", houseCategoriesRouter);
+server.use("/reviews", reviewsRouter);
+
 
 server.listen(port, async(req, res, next) => {
     console.log("Server is running on port: ", port);

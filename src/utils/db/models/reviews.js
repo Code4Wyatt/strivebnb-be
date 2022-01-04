@@ -2,7 +2,7 @@ import sequelize from "../index.js";
 
 import s from "sequelize";
 
-const {DataTypes} = s
+const { DataTypes } = s;
 
 const Review = sequelize.define('review', {
     reviewId: {
@@ -26,6 +26,10 @@ const Review = sequelize.define('review', {
         type: DataTypes.TEXT,
         allowNull: false,
     },
+    houseId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
 })
 
 export default Review;
